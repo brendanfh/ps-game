@@ -1,0 +1,21 @@
+{
+  "name": "game",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-prelude": "^3.0.0",
+    "purescript-console": "^3.0.0",
+    "purescript-canvas": "^3.0.0",
+    "purescript-random": "^3.0.0",
+    "purescript-datetime": "^3.0.0",
+    "purescript-refs": "^3.0.0",
+    "purescript-decimals": "^3.0.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0"
+  }
+}
