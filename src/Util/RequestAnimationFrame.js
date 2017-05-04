@@ -1,7 +1,5 @@
 "use strict"
 
-//module Main
-
 exports.requestAnimationFrame = function(func) {
     return function() {
         var past = Date.now();
