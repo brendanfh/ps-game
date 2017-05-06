@@ -12,11 +12,13 @@ import Types (GAME, GameState, GameStatus(..))
 import Update (update)
 import Util.Keyboard as K
 import Util.RequestAnimationFrame (requestAnimationFrame)
+import Util.Touch as T
 import View (view)
 
-initial :: forall e. Eff ( ref :: REF, random :: RANDOM | e ) GameState
+initial :: forall e. Eff ( ref :: REF, game :: GAME, random :: RANDOM | e ) GameState
 initial = do
-    keyRef <- newRef K.initialState
+    keyRef <- K.initialize
+    _ <- T.initialize
     grid <- generateMap 10 10
     pure { num : 0.0, status : Playing, keyboard : keyRef, grid : grid }
 
@@ -29,7 +31,6 @@ main = unsafePartial $ do
     ctx <- C.getContext2D canvas
     
     initialGameState <- initial
-    K.initialize initialGameState.keyboard
     gameRef <- newRef initialGameState
     
     let loop time = do

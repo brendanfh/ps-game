@@ -53,7 +53,7 @@ view ctx gameMap = do
         _ <- C.beginPath ctx
         _ <- C.arc ctx { x : (toNumber x) * 32.0 + 16.0
                        , y : (toNumber y) * 32.0 + 16.0
-                       , r : 12.0
+                       , r : 8.0
                        , start : 0.0
                        , end : Math.pi * 2.0
                        }

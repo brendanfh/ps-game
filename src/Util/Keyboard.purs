@@ -13,14 +13,16 @@ foreign import onKeyUp :: forall e. (Int -> Eff ( game :: GAME | e ) Unit) -> Ef
 initialState :: KeyboardState
 initialState = []
 
-initialize :: forall e. Ref KeyboardState -> Eff ( ref :: REF, game :: GAME | e ) Unit
-initialize keyRef = do
+initialize :: forall e. Eff ( ref :: REF, game :: GAME | e ) ( Ref KeyboardState )
+initialize = do
+    keyRef <- newRef initialState
     onKeyDown (\key ->
         modifyRef keyRef ((<>) [ key ])
     )
     onKeyUp (\key ->
         modifyRef keyRef (filter ((/=) key))
     )
+    pure keyRef
 
 isDown :: forall e. Ref KeyboardState -> Int -> Eff ( ref :: REF | e ) Boolean
 isDown keyRef key = do

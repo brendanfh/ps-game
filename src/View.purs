@@ -7,9 +7,7 @@ import Control.Monad.Eff
 import Control.Monad.Eff.Ref
 import GameMap as GM
 import Graphics.Canvas as C
-import Optic.Core
 
-import Lenses
 import Types
 
 view' :: forall e. C.Context2D -> GameStatus -> Ref GameState -> Eff ( canvas :: C.CANVAS, ref :: REF | e ) Unit
@@ -25,5 +23,5 @@ view' _ _ _ = pure unit
 view :: forall e. C.Context2D -> Ref GameState -> Eff ( canvas :: C.CANVAS, ref :: REF | e ) Unit
 view ctx stateRef = do
     state <- readRef stateRef
-    let gameStatus = state ^. status
+    let gameStatus = state.status
     view' ctx gameStatus stateRef
