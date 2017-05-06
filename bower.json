@@ -14,7 +14,8 @@
     "purescript-datetime": "^3.0.0",
     "purescript-refs": "^3.0.0",
     "purescript-decimals": "^3.0.0",
-    "purescript-lens": "^3.0.0"
+    "purescript-lens": "^3.0.0",
+    "purescript-foldable-traversable": "^3.0.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^3.0.0"

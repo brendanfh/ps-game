@@ -4,6 +4,8 @@ import Control.Monad.Eff (kind Effect)
 import Control.Monad.Eff.Ref (Ref)
 import Data.Array
 import Data.Eq
+
+import GameMap (Map)
     
 foreign import data GAME :: Effect
 
@@ -18,6 +20,7 @@ type GameState =
     { num :: Number
     , status :: GameStatus
     , keyboard :: Ref KeyboardState
+    , grid :: Map
     }
     
 
